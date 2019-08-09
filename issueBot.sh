@@ -24,7 +24,7 @@ const yaml = require("js-yaml");
 const fs = require("fs");
 
 
-const configFile = fs.readFileSync("config.yaml", "utf8");
+const configFile = fs.readFileSync(__dirname + "/config.yaml", "utf8");
 const config = yaml.load(configFile);
 
 
