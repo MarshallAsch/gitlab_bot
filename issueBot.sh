@@ -157,7 +157,9 @@ function moveIssue(issue, token, addLabel, removeLabels) {
 
 	labels = labels.filter(e => !removeLabels.includes(e))
 
-	let res = child.execSync(`curl --request PUT --header "PRIVATE-TOKEN: ${token}" https://gitlab.com/api/v4/projects/${issue.project_id}/issues/${issue.iid}?labels=${labels.join()}`);
+	let labelsStr = labels.join().replace(/ /gi, '+');
+
+	let res = child.execSync(`curl --request PUT --header "PRIVATE-TOKEN: ${token}" https://gitlab.com/api/v4/projects/${issue.project_id}/issues/${issue.iid}?labels=${labelsStr}`);
 	res = JSON.parse(res);
 
 	console.log(res);
