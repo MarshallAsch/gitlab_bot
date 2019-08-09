@@ -2,7 +2,7 @@
 This is a simple bot that will move gitlab issues when different events happen.
 
 
-This requires node to be installed on the system
+This requires node `v8.16.0+` to be installed on the system
 
 
 This was designed to work with my [Webhook server](https://github.com/MarshallAsch/CI_server) for gitlab events.

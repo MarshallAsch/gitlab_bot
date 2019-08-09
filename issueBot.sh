@@ -31,7 +31,7 @@ const config = yaml.load(configFile);
 let type = process.argv[2]
 let event = JSON.parse(process.argv[3]);
 
-let projectId = event.project.id;
+let projectId = event.project.id + "";
 
 
 let project =  config.projects.find(e => e.id === projectId);
@@ -70,12 +70,14 @@ function handlePush(event, config) {
 			console.log("possible ticket num: " + number)
 
 			const options = {
-				  headers: {
+				hostname: "gitlab.com",
+				path: `/api/v4/projects/${config.id}/issues?iids[]=${number}`,
+				headers: {
 		    		'Private-Token': config.token,
 		  		}
 			};
 
-			http.get(`https://gitlab.com/api/v4/projects/${config.id}/issues?iids[]=${number}`, options, (res) => {
+			http.get(options, (res) => {
 				res.on('data', (d) => {
 	    			let issues = JSON.parse(d.toString());
 
@@ -126,12 +128,14 @@ function handleMR(event, config) {
 		console.log("possible ticket num: " + number)
 
 		const options = {
-			  headers: {
+			hostname: "gitlab.com",
+			path: `/api/v4/projects/${config.id}/issues?iids[]=${number}`,
+			headers: {
 	    		'Private-Token': config.token,
 	  		}
 		};
 
-		http.get(`https://gitlab.com/api/v4/projects/${config.id}/issues?iids[]=${number}`, options, (res) => {
+		http.get(options, (res) => {
 			res.on('data', (d) => {
     			let issues = JSON.parse(d.toString());
 
