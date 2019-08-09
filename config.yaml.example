@@ -1,0 +1,27 @@
+projects:
+  - id: "<projectID>"
+    token: "<gitlab token>"
+    new_branch:
+      old_labels:
+        - "To Do"
+      new_label: "Doing"
+
+    opened_mr:
+      old_labels:
+        - "To Do"
+        - "Doing"
+      new_label: "In Review"
+
+    merged_mr:
+      old_labels:
+        - "To Do"
+        - "Doing"
+        - "In Review"
+      new_label:
+
+    closed_mr:
+      old_labels:
+        - "To Do"
+        - "Doing"
+        - "In Review"
+      new_label:

@@ -1,0 +1,18 @@
+{
+  "name": "gitlab bot",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarshallAsch/gitlab_bot.git"
+  },
+  "author": {
+    "name": "Marshall Asch",
+    "email": "maasch@rogers.com",
+    "url": "https://marshallasch.ca"
+  },
+  "dependencies": {
+    "js-yaml": "3.13.1"
+  }
+}
